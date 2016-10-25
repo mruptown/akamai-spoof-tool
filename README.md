@@ -7,25 +7,23 @@
 WARNING: This file directly modifies your computer's host file.  If you do not know what this means, it's probably best you don't use this tool.
 
 ####Directions:
-
-1. Create a backup of your host file.  In Mac OS this can be done with the following command line statement:
-
-  ```
-  sudo cp /etc/hosts /etc/hosts.backup
-  ```
   
-2. Modify the sites.txt file to include the sites that use Akamai that you'd like to spoof
-3. From the command line, navigate to the directory where the sites.txt and the spoof.sh file exists, and run the following command to put the spoof entries in your host file:
+1. Modify the sites.txt file to include the sites that use Akamai that you'd like to spoof
+2. From the command line, navigate to the directory where the sites.txt and the spoof.sh file exists, and run the following command to put the spoof entries in your host file:
 
   ```
   sudo ./spoof.sh
   ```
   
-4. To remove the spoofed entries from your host file, simply pass in a "-d" to the command:
+3. To remove the spoofed entries from your host file, simply pass in a "-d" to the command:
 
   ```
   sudo ./spoof.sh -d
   ```
-  
+
+DNS is automatically flushed at the end of the script.
+
+If something went wrong, a backup of your hosts file from before the last time the command was run can be found at: `/etc/hosts.backup`
+
 Suggestions for improvement welcome!
 
