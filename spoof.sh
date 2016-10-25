@@ -5,6 +5,9 @@ DELIMITER="###SPOOF ENTRIES BELOW###"
 HOST_FILE=/etc/hosts
 
 SPOOF_ENTRIES="\n$DELIMITER\n"
+
+#backup existing host file
+cp /etc/hosts /etc/hosts.backup
 	
 #remove existing spoof entries
 echo "`sed -n '/'"$DELIMITER"'/q;p' <"$HOST_FILE"`" > "$HOST_FILE"
@@ -36,3 +39,7 @@ if [ "$1" != "-d" ]; then
 
 	echo "$SPOOF_ENTRIES" >> "$HOST_FILE"
 fi
+
+#flush DNS cache
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
