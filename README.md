@@ -2,7 +2,7 @@
 ####This tool is a simple shell script for people who are frequently spoofing to Akamai's Staging network to test changes.
 
 ####Supported and tested operating systems:
-* Mac OS Sierra
+* Mac OS Sierra and above
 
 WARNING: This file directly modifies your computer's host file.  If you do not know what this means, it's probably best you don't use this tool.
 
